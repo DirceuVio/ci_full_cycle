@@ -1,14 +1,19 @@
 name: ci-golang
 on: 
+  push:
+    branches:
+      - develop
+      - main
   pull_request:
     branches:
       - develop
+      - main
 
 jobs:
   checks-application:
     strategy:
       matrix:
-        go: ['1.21', '1.22']
+        go: ['1.14', '1.15']
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
